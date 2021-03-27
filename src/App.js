@@ -4,21 +4,22 @@ import './App.css';
 class App extends Component{
 
   state = {
-    className :'bg-green'
+    className :'bg-green',
+    style : {color:'white', fontWeight:'bold'},
+    active: true
   }
 
   render(){
 
-     
     return (
       
       <div>
 
-            <div className ={this.state.className}>
+            <div className ={this.state.active ? 'bg-green' : 'bg-red'} style = {this.state.style}>
                 TEST
             </div>
-            <button onClick = {()=> {this.setState({className:'bg-red'})}}> Click Me to red</button>
-            <button onClick = {()=> {this.setState({className:'bg-green'})}}> Click Me to green</button>
+            <button onClick = {()=> {this.setState({active: ! this.state.active})}}> Change Active</button>
+           
       </div>
     );
   }
